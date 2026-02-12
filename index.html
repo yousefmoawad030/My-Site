@@ -180,3 +180,486 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدورات التدريبية - أكاديمية البرمجة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h2>🎓 أكاديمية البرمجة</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="courses.html" class="active">الدورات</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+                <li><a href="login.html" class="login-btn">تسجيل الدخول</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>الدورات التدريبية</h1>
+            <p>اختر من بين مجموعة متنوعة من الدورات التدريبية في البرمجة</p>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters">
+                <div class="filter-group">
+                    <label>المستوى:</label>
+                    <select id="levelFilter">
+                        <option value="all">جميع المستويات</option>
+                        <option value="beginner">مبتدئ</option>
+                        <option value="intermediate">متوسط</option>
+                        <option value="advanced">متقدم</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>الفئة:</label>
+                    <select id="categoryFilter">
+                        <option value="all">جميع الفئات</option>
+                        <option value="web">تطوير الويب</option>
+                        <option value="mobile">تطوير التطبيقات</option>
+                        <option value="data">علم البيانات</option>
+                        <option value="ai">الذكاء الاصطناعي</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>الترتيب:</label>
+                    <select id="sortFilter">
+                        <option value="popular">الأكثر شعبية</option>
+                        <option value="newest">الأحدث</option>
+                        <option value="rating">التقييم</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Grid -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="courses-grid">
+                <!-- Course 1 -->
+                <div class="course-card" data-level="beginner" data-category="web">
+                    <div class="course-badge">مبتدئ</div>
+                    <img src="https://via.placeholder.com/400x250/4A90E2/FFFFFF?text=Python" alt="Python Course">
+                    <div class="course-content">
+                        <h3>تعلم Python من الصفر</h3>
+                        <p>ابدأ رحلتك في تعلم البرمجة مع لغة بايثون بطريقة سهلة وممتعة</p>
+                        <div class="course-meta">
+                            <span>📚 45 درس</span>
+                            <span>⏱️ 12 ساعة</span>
+                        </div>
+                        <div class="course-info">
+                            <span>⭐ 4.8 (1,200)</span>
+                            <span>👥 2,500 طالب</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="price">مجاني</span>
+                            <a href="dashboard.html" class="btn btn-small">ابدأ التعلم</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="course-card" data-level="beginner" data-category="web">
+                    <div class="course-badge">مبتدئ</div>
+                    <img src="https://via.placeholder.com/400x250/61DAFB/000000?text=JavaScript" alt="JavaScript Course">
+                    <div class="course-content">
+                        <h3>JavaScript الكامل</h3>
+                        <p>تعلم جافاسكريبت من الأساسيات حتى الاحتراف مع مشاريع عملية</p>
+                        <div class="course-meta">
+                            <span>📚 60 درس</span>
+                            <span>⏱️ 18 ساعة</span>
+                        </div>
+                        <div class="course-info">
+                            <span>⭐ 4.9 (2,100)</span>
+                            <span>👥 3,200 طالب</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="price">199 ريال</span>
+                            <a href="dashboard.html" class="btn btn-small">ابدأ التعلم</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="course-card" data-level="beginner" data-category="web">
+                    <div class="course-badge">مبتدئ</div>
+                    <img src="https://via.placeholder.com/400x250/E34F26/FFFFFF?text=HTML+CSS" alt="Web Development">
+                    <div class="course-content">
+                        <h3>تطوير المواقع الحديثة</h3>
+                        <p>تعلم HTML5, CSS3 وتصميم المواقع المتجاوبة</p>
+                        <div class="course-meta">
+                            <span>📚 50 درس</span>
+                            <span>⏱️ 15 ساعة</span>
+                        </div>
+                        <div class="course-info">
+                            <span>⭐ 4.7 (1,800)</span>
+                            <span>👥 4,100 طالب</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="price">149 ريال</span>
+                            <a href="dashboard.html" class="btn btn-small">ابدأ التعلم</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 4 -->
+                <div class="course-card" data-level="intermediate" data-category="web">
+                    <div class="course-badge badge-intermediate">متوسط</div>
+                    <img src="https://via.placeholder.com/400x250/61DAFB/000000?text=React" alt="React Course">
+                    <div class="course-content">
+                        <h3>React - تطوير تطبيقات الويب</h3>
+                        <p>بناء تطبيقات ويب تفاعلية باستخدام React و Redux</p>
+                        <div class="course-meta">
+                            <span>📚 55 درس</span>
+                            <span>⏱️ 20 ساعة</span>
+                        </div>
+                        <div class="course-info">
+                            <span>⭐ 4.9 (1,500)</span>
+                            <span>👥 2,800 طالب</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="price">299 ريال</span>
+                            <a href="dashboard.html" class="btn btn-small">ابدأ التعلم</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 5 -->
+                <div class="course-card" data-level="intermediate" data-category="mobile">
+                    <div class="course-badge badge-intermediate">متوسط</div>
+                    <img src="https://via.placeholder.com/400x250/02569B/FFFFFF?text=Flutter" alt="Flutter Course">
+                    <div class="course-content">
+                        <h3>تطوير التطبيقات بـ Flutter</h3>
+                        <p>تعلم بناء تطبيقات الموبايل لنظامي Android و iOS</p>
+                        <div class="course-meta">
+                            <span>📚 65 درس</span>
+                            <span>⏱️ 22 ساعة</span>
+                        </div>
+                        <div class="course-info">
+                            <span>⭐ 4.8 (1,100)</span>
+                            <span>👥 2,300 طالب</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="price">349 ريال</span>
+                            <a href="dashboard.html" class="btn btn-small">ابدأ التعلم</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 6 -->
+                <div class="course-card" data-level="advanced" data-category="data">
+                    <div class="course-badge badge-advanced">متقدم</div>
+                    <img src="https://via.placeholder.com/400x250/FF6F00/FFFFFF?text=Data+Science" alt="Data Science">
+                    <div class="course-content">
+                        <h3>علم البيانات والتحليل</h3>
+                        <p>تعلم تحليل البيانات باستخدام Python و Pandas</p>
+                        <div class="course-meta">
+                            <span>📚 70 درس</span>
+                            <span>⏱️ 25 ساعة</span>
+                        </div>
+                        <div class="course-info">
+                            <span>⭐ 4.9 (950)</span>
+                            <span>👥 1,900 طالب</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="price">399 ريال</span>
+                            <a href="dashboard.html" class="btn btn-small">ابدأ التعلم</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 7 -->
+                <div class="course-card" data-level="intermediate" data-category="web">
+                    <div class="course-badge badge-intermediate">متوسط</div>
+                    <img src="https://via.placeholder.com/400x250/68A063/FFFFFF?text=Node.js" alt="Node.js Course">
+                    <div class="course-content">
+                        <h3>Node.js - بناء الخوادم</h3>
+                        <p>تطوير تطبيقات الخادم باستخدام Node.js و Express</p>
+                        <div class="course-meta">
+                            <span>📚 58 درس</span>
+                            <span>⏱️ 19 ساعة</span>
+                        </div>
+                        <div class="course-info">
+                            <span>⭐ 4.7 (1,300)</span>
+                            <span>👥 2,600 طالب</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="price">279 ريال</span>
+                            <a href="dashboard.html" class="btn btn-small">ابدأ التعلم</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 8 -->
+                <div class="course-card" data-level="advanced" data-category="ai">
+                    <div class="course-badge badge-advanced">متقدم</div>
+                    <img src="https://via.placeholder.com/400x250/FF6B6B/FFFFFF?text=AI+ML" alt="AI & ML Course">
+                    <div class="course-content">
+                        <h3>الذكاء الاصطناعي وتعلم الآلة</h3>
+                        <p>تعلم بناء نماذج الذكاء الاصطناعي باستخدام TensorFlow</p>
+                        <div class="course-meta">
+                            <span>📚 80 درس</span>
+                            <span>⏱️ 30 ساعة</span>
+                        </div>
+                        <div class="course-info">
+                            <span>⭐ 4.9 (800)</span>
+                            <span>👥 1,500 طالب</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="price">449 ريال</span>
+                            <a href="dashboard.html" class="btn btn-small">ابدأ التعلم</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 9 -->
+                <div class="course-card" data-level="beginner" data-category="web">
+                    <div class="course-badge">مبتدئ</div>
+                    <img src="https://via.placeholder.com/400x250/CC0000/FFFFFF?text=Java" alt="Java Course">
+                    <div class="course-content">
+                        <h3>برمجة Java للمبتدئين</h3>
+                        <p>تعلم أساسيات البرمجة الكائنية بلغة Java</p>
+                        <div class="course-meta">
+                            <span>📚 52 درس</span>
+                            <span>⏱️ 16 ساعة</span>
+                        </div>
+                        <div class="course-info">
+                            <span>⭐ 4.6 (1,400)</span>
+                            <span>👥 3,000 طالب</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="price">179 ريال</span>
+                            <a href="dashboard.html" class="btn btn-small">ابدأ التعلم</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>أكاديمية البرمجة</h3>
+                    <p>منصتك الأولى لتعلم البرمجة باللغة العربية</p>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="courses.html">الدورات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <ul>
+                        <li>📧 info@codingacademy.com</li>
+                        <li>📱 +966 50 123 4567</li>
+                        <li>📍 الرياض، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 أكاديمية البرمجة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+    </html> 
+    <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - أكاديمية البرمجة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h2>🎓 أكاديمية البرمجة</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="courses.html">الدورات</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+                <li><a href="login.html" class="login-btn active">تسجيل الدخول</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-box">
+                    <h2>تسجيل الدخول</h2>
+                    <p class="subtitle">مرحباً بك مرة أخرى!</p>
+                    
+                    <form id="loginForm" class="login-form">
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">كلمة المرور</label>
+                            <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="remember">
+                                <span>تذكرني</span>
+                            </label>
+                            <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">تسجيل الدخول</button>
+                        
+                        <div class="divider">
+                            <span>أو</span>
+                        </div>
+                        
+                        <button type="button" class="btn btn-google">
+                            <span>🔍</span> تسجيل الدخول بحساب جوجل
+                        </button>
+                        
+                        <p class="signup-link">
+                            ليس لديك حساب؟ <a href="#" id="showRegister">إنشاء حساب جديد</a>
+                        </p>
+                    </form>
+
+                    <!-- Registration Form (Hidden by default) -->
+                    <form id="registerForm" class="login-form" style="display: none;">
+                        <div class="form-group">
+                            <label for="reg-name">الاسم الكامل</label>
+                            <input type="text" id="reg-name" name="name" placeholder="أدخل اسمك الكامل" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg-email">البريد الإلكتروني</label>
+                            <input type="email" id="reg-email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg-password">كلمة المرور</label>
+                            <input type="password" id="reg-password" name="password" placeholder="أدخل كلمة المرور" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg-confirm-password">تأكيد كلمة المرور</label>
+                            <input type="password" id="reg-confirm-password" name="confirm-password" placeholder="أعد إدخال كلمة المرور" required>
+                        </div>
+                        
+                        <label class="checkbox-label terms-checkbox">
+                            <input type="checkbox" name="terms" required>
+                            <span>أوافق على <a href="#">الشروط والأحكام</a></span>
+                        </label>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">إنشاء حساب</button>
+                        
+                        <p class="signup-link">
+                            لديك حساب بالفعل؟ <a href="#" id="showLogin">تسجيل الدخول</a>
+                        </p>
+                    </form>
+                </div>
+                
+                <div class="login-benefits">
+                    <h3>انضم إلى مجتمع المبرمجين</h3>
+                    <ul class="benefits-list">
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            <div>
+                                <strong>وصول كامل للدورات</strong>
+                                <p>استمتع بجميع الدورات التدريبية</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            <div>
+                                <strong>شهادات معتمدة</strong>
+                                <p>احصل على شهادات عند إكمال الدورات</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            <div>
+                                <strong>تتبع تقدمك</strong>
+                                <p>راقب تطورك ونسبة إتمامك للدورات</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="benefit-icon">✓</span>
+                            <div>
+                                <strong>دعم من الخبراء</strong>
+                                <p>احصل على مساعدة من مدربين محترفين</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>أكاديمية البرمجة</h3>
+                    <p>منصتك الأولى لتعلم البرمجة باللغة العربية</p>
+                </div>
+                <div class="footer-section">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="courses.html">الدورات</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <ul>
+                        <li>📧 info@codingacademy.com</li>
+                        <li>📱 +966 50 123 4567</li>
+                        <li>📍 الرياض، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 أكاديمية البرمجة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+    </html>
+    

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact</title>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+        emailjs.init("YOUR_PUBLIC_KEY");
+    })();
+  </script>
+</head>
+<body>
+
+<form id="contact-form">
+  <input type="text" name="user_name" placeholder="Your Name" required><br>
+  <input type="email" name="user_email" placeholder="Your Email" required><br>
+  <textarea name="message" placeholder="Your Message" required></textarea><br>
+  <button type="submit">Send</button>
+</form>
+
+<script>
+document.getElementById("contact-form")
+.addEventListener("submit", function(event) {
+   event.preventDefault();
+
+   emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID", this)
+   .then(function() {
+      alert("Message Sent Successfully!");
+   }, function(error) {
+      alert("Failed... " + JSON.stringify(error));
+   });
+});
+</script>
+<a href="mailto:youremail@gmail.com">Send Email</a>
+
+</body>
+</html>

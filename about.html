@@ -1,76 +1,57 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عرض صورة ميم</title>
-    <style>
-        body {
-            background-color: #121212;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .card {
-            background-color: #1e1e1e;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            border: 1px solid #333;
-        }
-
-        .card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .content {
-            padding: 20px;
-            color: white;
-        }
-
-        .content h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            color: #ffcc00; /* لون مميز للعنوان */
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #0095f6;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #0077c2;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>تواصل معنا</title>
 </head>
-<body>
 
-    <div class="card">
-        <img src="https://via.placeholder.com/400x500" alt="Meme Image">
-        
-        <div class="content">
-            <h3>ردة فعل أسطورية!</h3>
-            <p>عندما تكتشف أن الكود اشتغل من أول مرة..</p>
-            <a href="#" class="btn">تحميل الصورة</a>
-        </div>
-    </div>
+<body style="margin:0;padding:0;background:#f2f2f2;font-family:Arial">
+
+  <div style="
+    max-width:420px;
+    margin:40px auto;
+    background:#ffffff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.08)
+  ">
+
+    <h2 style="text-align:center;color:#333">📩 تواصل معنا</h2>
+
+    <p style="text-align:center;color:#666;font-size:14px">
+      رسالتك هتوصل مباشرة
+    </p>
+
+    <form action="mailto:yousefmoawad030@gmail.com" method="POST" enctype="text/plain">
+
+      <label>إيميلك</label><br>
+      <input type="email" name="Email" required
+        style="width:100%;padding:8px;margin:8px 0"><br>
+
+      <label>رسالتك</label><br>
+      <textarea name="Message" required
+        style="width:100%;padding:8px;height:100px;margin:8px 0"></textarea><br>
+
+      <button type="submit"
+        style="
+          width:100%;
+          padding:10px;
+          background:#333;
+          color:#fff;
+          border:none;
+          border-radius:5px;
+          cursor:pointer
+        ">
+        إرسال
+      </button>
+
+    </form>
+
+    <p style="font-size:12px;color:#999;text-align:center;margin-top:10px">
+      سيتم الإرسال عبر تطبيق البريد
+    </p>
+
+  </div>
 
 </body>
 </html>

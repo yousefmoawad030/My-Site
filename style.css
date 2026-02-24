@@ -1153,4 +1153,64 @@ body {
         gap: 10px;
     }
 
-    
+    /* ========== نهاية CSS بعد التصحيح ========== */
+
+/* أي نص عربي أو ملاحظة لازم تتحول لتعليق */
+
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Login & Contact Containers */
+    .login-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Dashboard */
+    .dashboard-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        display: none;
+    }
+
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+} /* نهاية الـ media query */

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>موقع تعلم البرمجة</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>أهلاً بك في موقع تعلم البرمجة</h1>
+
+<div id="loginBox">
+  <h2>تسجيل الدخول / إنشاء حساب</h2>
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="password" id="password" placeholder="Password" required>
+  <button id="signupBtn">إنشاء حساب</button>
+  <button id="loginBtn">تسجيل دخول</button>
+</div>
+
+<div id="userBox" style="display:none;">
+  <h2>مرحبًا <span id="userId"></span></h2>
+  <nav>
+    <a href="lessons/html.html">درس HTML</a> |
+    <a href="lessons/css.html">درس CSS</a> |
+    <a href="lessons/js.html">درس JS</a>
+  </nav>
+  <button id="logoutBtn">تسجيل خروج</button>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>

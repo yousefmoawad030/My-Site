@@ -1425,3 +1425,481 @@
 </body>
                     </html>
                     
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع تعلم البرمجة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bg-orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; animation: orbFloat 8s ease-in-out infinite; }
+        .orb1 { width: 400px; height: 400px; background: #6c3fc5; top: -100px; left: -100px; }
+        .orb2 { width: 300px; height: 300px; background: #38bdf8; bottom: -80px; right: -80px; animation-delay: 2s; }
+        .orb3 { width: 200px; height: 200px; background: #f472b6; top: 50%; left: 50%; animation-delay: 4s; }
+
+        @keyframes orbFloat {
+            0%,100% { transform: translate(0,0) scale(1); }
+            50% { transform: translate(30px,-30px) scale(1.1); }
+        }
+
+        .particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+        .particle { position: absolute; background: white; border-radius: 50%; opacity: 0; animation: particleFly linear infinite; }
+
+        @keyframes particleFly {
+            0% { opacity: 0; transform: translateY(100vh); }
+            10% { opacity: 0.4; }
+            90% { opacity: 0.4; }
+            100% { opacity: 0; transform: translateY(-100px); }
+        }
+
+        .card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 28px;
+            padding: 40px 35px;
+            width: 92%;
+            max-width: 440px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            animation: cardIn 0.6s cubic-bezier(0.34,1.56,0.64,1);
+        }
+
+        @keyframes cardIn {
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .logo { text-align: center; margin-bottom: 28px; }
+        .logo-icon { font-size: 56px; display: block; margin-bottom: 10px; animation: bounce 2s ease-in-out infinite; }
+
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .logo h1 {
+            font-size: 22px; font-weight: 900;
+            background: linear-gradient(90deg, #fff, #38bdf8, #f472b6);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .logo p { color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 4px; }
+
+        .tabs {
+            display: flex; background: rgba(0,0,0,0.3); border-radius: 14px;
+            padding: 4px; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tab {
+            flex: 1; padding: 11px; text-align: center; cursor: pointer;
+            border-radius: 11px; font-size: 14px; font-weight: 700;
+            font-family: 'Cairo', sans-serif; color: rgba(255,255,255,0.5);
+            transition: all 0.3s; border: none; background: transparent;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #6c3fc5, #38bdf8);
+            color: white; box-shadow: 0 4px 15px rgba(108,63,197,0.5);
+        }
+
+        .form-section { display: none; }
+        .form-section.active { display: block; }
+
+        .input-wrap { position: relative; margin-bottom: 15px; }
+        .input-wrap .ico { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; z-index: 2; }
+
+        .input-wrap input {
+            width: 100%; padding: 14px 48px 14px 16px;
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 14px; color: white; font-size: 14px;
+            font-family: 'Cairo', sans-serif; outline: none; transition: all 0.3s;
+        }
+
+        .input-wrap input::placeholder { color: rgba(255,255,255,0.35); }
+        .input-wrap input:focus { border-color: #38bdf8; background: rgba(56,189,248,0.1); box-shadow: 0 0 0 3px rgba(56,189,248,0.15); }
+
+        .btn-main {
+            width: 100%; padding: 15px;
+            background: linear-gradient(135deg, #6c3fc5, #38bdf8);
+            color: white; border: none; border-radius: 14px;
+            font-size: 16px; font-weight: 800; font-family: 'Cairo', sans-serif;
+            cursor: pointer; transition: all 0.3s; margin-top: 5px;
+        }
+
+        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(108,63,197,0.5); }
+
+        .msg {
+            display: none; padding: 12px 16px; border-radius: 12px;
+            font-size: 13px; font-weight: 600; margin-top: 14px; text-align: center;
+        }
+
+        .msg.error   { background: rgba(239,68,68,0.2);  border: 1px solid rgba(239,68,68,0.4);  color: #fca5a5; }
+        .msg.success { background: rgba(34,197,94,0.2);  border: 1px solid rgba(34,197,94,0.4);  color: #86efac; }
+        .msg.warn    { background: rgba(251,191,36,0.2); border: 1px solid rgba(251,191,36,0.4); color: #fde68a; }
+
+        /* ===== صفحة المستخدم ===== */
+        #homePage { display: none; }
+
+        .home-header { text-align: center; margin-bottom: 24px; }
+
+        .avatar {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, #6c3fc5, #38bdf8);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 36px; margin: 0 auto 14px;
+            box-shadow: 0 8px 25px rgba(108,63,197,0.5);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .welcome-text {
+            font-size: 20px; font-weight: 900;
+            background: linear-gradient(90deg, #fff, #38bdf8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .welcome-sub { color: rgba(255,255,255,0.5); font-size: 13px; margin-top: 4px; }
+
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 15px; }
+
+        .info-card {
+            background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px; padding: 16px; text-align: center; transition: all 0.3s;
+        }
+
+        .info-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+        .info-card.full  { grid-column: 1 / -1; }
+        .info-card .ic-icon  { font-size: 24px; margin-bottom: 6px; display: block; }
+        .info-card .ic-label { color: rgba(255,255,255,0.4); font-size: 11px; margin-bottom: 4px; }
+        .info-card .ic-value { color: white; font-size: 13px; font-weight: 700; word-break: break-all; }
+
+        .ip-value {
+            font-size: 17px !important;
+            background: linear-gradient(90deg, #38bdf8, #f472b6);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.2); border-top-color: #38bdf8; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; margin-left: 4px; }
+
+        .btn-logout {
+            width: 100%; padding: 13px;
+            background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.3);
+            border-radius: 14px; color: #fca5a5; font-size: 15px; font-weight: 700;
+            font-family: 'Cairo', sans-serif; cursor: pointer; transition: all 0.3s; margin-top: 5px;
+        }
+
+        .btn-logout:hover { background: rgba(239,68,68,0.35); transform: translateY(-2px); }
+
+        .courses-section { margin-top: 15px; }
+        .courses-title { color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 10px; text-align: center; }
+
+        .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+        .course-card {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px; padding: 12px 8px; text-align: center; cursor: pointer; transition: all 0.3s;
+        }
+
+        .course-card:hover { background: rgba(108,63,197,0.3); border-color: #6c3fc5; transform: translateY(-3px); }
+        .course-card .cc-icon { font-size: 22px; display: block; margin-bottom: 5px; }
+        .course-card .cc-name { color: white; font-size: 11px; font-weight: 600; }
+
+        /* ===== صفحة الأدمن ===== */
+        #adminPage { display: none; }
+
+        .admin-header {
+            text-align: center; margin-bottom: 20px;
+            padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .admin-badge {
+            display: inline-block; padding: 4px 14px;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            border-radius: 20px; font-size: 12px; font-weight: 700; color: white;
+            margin-bottom: 10px; letter-spacing: 1px;
+        }
+
+        .admin-title {
+            font-size: 20px; font-weight: 900;
+            background: linear-gradient(90deg, #f59e0b, #ef4444);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .admin-stats {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px; padding: 14px; text-align: center;
+        }
+
+        .stat-card .s-num { font-size: 24px; font-weight: 900; color: white; }
+        .stat-card .s-lbl { color: rgba(255,255,255,0.4); font-size: 11px; margin-top: 3px; }
+
+        .users-list-title {
+            color: rgba(255,255,255,0.6); font-size: 13px;
+            margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+        }
+
+        .users-list {
+            max-height: 280px; overflow-y: auto;
+            scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent;
+        }
+
+        .user-row {
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; transition: all 0.3s;
+        }
+
+        .user-row:hover { background: rgba(255,255,255,0.1); }
+
+        .user-row.banned {
+            background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3);
+            opacity: 0.7;
+        }
+
+        .user-info { flex: 1; }
+        .user-name { color: white; font-size: 13px; font-weight: 700; }
+        .user-email { color: rgba(255,255,255,0.4); font-size: 11px; margin-top: 2px; }
+
+        .user-status {
+            font-size: 10px; font-weight: 700; padding: 2px 8px;
+            border-radius: 10px; margin-left: 8px;
+        }
+
+        .status-active { background: rgba(34,197,94,0.2); color: #86efac; border: 1px solid rgba(34,197,94,0.3); }
+        .status-banned { background: rgba(239,68,68,0.2); color: #fca5a5; border: 1px solid rgba(239,68,68,0.3); }
+
+        .btn-ban {
+            padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 700;
+            font-family: 'Cairo', sans-serif; cursor: pointer; transition: all 0.3s; border: none;
+        }
+
+        .btn-ban.do-ban { background: rgba(239,68,68,0.3); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); }
+        .btn-ban.do-ban:hover { background: rgba(239,68,68,0.5); }
+        .btn-ban.do-unban { background: rgba(34,197,94,0.3); color: #86efac; border: 1px solid rgba(34,197,94,0.4); }
+        .btn-ban.do-unban:hover { background: rgba(34,197,94,0.5); }
+
+        .empty-users { text-align: center; color: rgba(255,255,255,0.3); font-size: 13px; padding: 20px; }
+
+        /* صفحة مبان */
+        #bannedPage { display: none; }
+
+        .banned-container {
+            text-align: center; padding: 40px 20px;
+        }
+
+        .banned-icon { font-size: 80px; display: block; margin-bottom: 20px; }
+
+        .banned-title {
+            font-size: 24px; font-weight: 900; color: #fca5a5; margin-bottom: 10px;
+        }
+
+        .banned-sub { color: rgba(255,255,255,0.4); font-size: 14px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="bg-orbs">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+</div>
+<div class="particles" id="particles"></div>
+
+<!-- صفحة التسجيل -->
+<div class="card" id="authPage">
+    <div class="logo">
+        <span class="logo-icon">👨‍💻</span>
+        <h1>موقع تعلم البرمجة</h1>
+        <p>ابدأ رحلتك في عالم البرمجة اليوم</p>
+    </div>
+
+    <div class="tabs">
+        <button class="tab" onclick="switchTab('login')">تسجيل الدخول</button>
+        <button class="tab active" onclick="switchTab('register')">إنشاء حساب</button>
+    </div>
+
+    <div class="form-section active" id="registerForm">
+        <div class="input-wrap">
+            <span class="ico">👤</span>
+            <input type="text" id="regName" placeholder="الاسم الكامل" autocomplete="off" />
+        </div>
+        <div class="input-wrap">
+            <span class="ico">📧</span>
+            <input type="text" id="regEmail" placeholder="البريد الإلكتروني" autocomplete="off" />
+        </div>
+        <div class="input-wrap">
+            <span class="ico">🔒</span>
+            <input type="password" id="regPass" placeholder="كلمة المرور (6 أحرف على الأقل)" />
+        </div>
+        <button class="btn-main" onclick="register()">✨ إنشاء حساب</button>
+        <div class="msg" id="regMsg"></div>
+    </div>
+
+    <div class="form-section" id="loginForm">
+        <div class="input-wrap">
+            <span class="ico">📧</span>
+            <input type="text" id="loginEmail" placeholder="البريد الإلكتروني" autocomplete="off" />
+        </div>
+        <div class="input-wrap">
+            <span class="ico">🔒</span>
+            <input type="password" id="loginPass" placeholder="كلمة المرور" />
+        </div>
+        <button class="btn-main" onclick="login()">🔑 تسجيل الدخول</button>
+        <div class="msg" id="loginMsg"></div>
+    </div>
+</div>
+
+<!-- صفحة المستخدم العادي -->
+<div class="card" id="homePage">
+    <div class="home-header">
+        <div class="avatar" id="avatarEmoji">😊</div>
+        <div class="welcome-text" id="welcomeName">أهلاً!</div>
+        <div class="welcome-sub">مرحباً بك في موقع تعلم البرمجة 🎉</div>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <span class="ic-icon">👤</span>
+            <div class="ic-label">الاسم</div>
+            <div class="ic-value" id="infoName">-</div>
+        </div>
+        <div class="info-card">
+            <span class="ic-icon">📧</span>
+            <div class="ic-label">البريد</div>
+            <div class="ic-value" id="infoEmail">-</div>
+        </div>
+        <div class="info-card full">
+            <span class="ic-icon">🌐</span>
+            <div class="ic-label">عنوان IP بتاعك</div>
+            <div class="ic-value ip-value" id="infoIP"><span class="spinner"></span> جاري التحميل...</div>
+        </div>
+        <div class="info-card">
+            <span class="ic-icon">🖥️</span>
+            <div class="ic-label">الدولة</div>
+            <div class="ic-value" id="infoCountry">-</div>
+        </div>
+        <div class="info-card">
+            <span class="ic-icon">🏙️</span>
+            <div class="ic-label">المدينة</div>
+            <div class="ic-value" id="infoCity">-</div>
+        </div>
+        <div class="info-card full">
+            <span class="ic-icon">📡</span>
+            <div class="ic-label">مزود الإنترنت</div>
+            <div class="ic-value" id="infoISP">-</div>
+        </div>
+    </div>
+
+    <div class="courses-section">
+        <div class="courses-title">📚 الكورسات المتاحة</div>
+        <div class="courses-grid">
+            <div class="course-card"><span class="cc-icon">🐍</span><div class="cc-name">Python</div></div>
+            <div class="course-card"><span class="cc-icon">🌐</span><div class="cc-name">HTML/CSS</div></div>
+            <div class="course-card"><span class="cc-icon">⚡</span><div class="cc-name">JavaScript</div></div>
+            <div class="course-card"><span class="cc-icon">📱</span><div class="cc-name">Flutter</div></div>
+            <div class="course-card"><span class="cc-icon">🗄️</span><div class="cc-name">SQL</div></div>
+            <div class="course-card"><span class="cc-icon">☕</span><div class="cc-name">Java</div></div>
+        </div>
+    </div>
+
+    <button class="btn-logout" onclick="logout()">🚪 تسجيل الخروج</button>
+</div>
+
+<!-- لوحة الأدمن -->
+<div class="card" id="adminPage">
+    <div class="admin-header">
+        <div class="admin-badge">👑 ADMIN</div>
+        <div class="admin-title">لوحة التحكم</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:12px;margin-top:4px;">Yousefmoawad030@gmail.com</div>
+    </div>
+
+    <div class="admin-stats">
+        <div class="stat-card">
+            <div class="s-num" id="statTotal">0</div>
+            <div class="s-lbl">إجمالي المستخدمين</div>
+        </div>
+        <div class="stat-card">
+            <div class="s-num" id="statActive" style="color:#86efac;">0</div>
+            <div class="s-lbl">نشطين</div>
+        </div>
+        <div class="stat-card">
+            <div class="s-num" id="statBanned" style="color:#fca5a5;">0</div>
+            <div class="s-lbl">محظورين</div>
+        </div>
+    </div>
+
+    <div class="users-list-title">
+        👥 قائمة المستخدمين
+        <button onclick="refreshUsers()" style="background:rgba(255,255,255,0.1);border:none;color:white;padding:3px 10px;border-radius:8px;cursor:pointer;font-family:'Cairo',sans-serif;font-size:11px;">🔄 تحديث</button>
+    </div>
+
+    <div class="users-list" id="usersList"></div>
+
+    <button class="btn-logout" onclick="logout()" style="margin-top:15px;">🚪 تسجيل الخروج</button>
+</div>
+
+<!-- صفحة المبان -->
+<div class="card" id="bannedPage">
+    <div class="banned-container">
+        <span class="banned-icon">🚫</span>
+        <div class="banned-title">تم حظر حسابك!</div>
+        <div class="banned-sub">
+            تم حظر حسابك من قبل الأدمن.<br>
+            لا يمكنك الوصول للموقع.
+        </div>
+        <button class="btn-logout" onclick="logout()" style="margin-top:25px;">تسجيل الخروج</button>
+    </div>
+</div>
+
+<script>
+// ===== الإعدادات =====
+var ADMIN_EMAIL = 'Yousefmoawad030@gmail.com';
+var ADMIN_PASS  = 'My.ropot';
+
+// ===== جسيمات =====
+var pt = document.getElementById('particles');
+for (var i = 0; i < 20; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = (Math.random()*100) + '%';
+    p.style.width = (Math.random()*3+2) + 'px';
+    p.style.height = p.style.width;
+    p.style.animationDuration = (Math.random()*10+8) + 's';
+    p.style.animationDelay = (Math.random()*10) + 's';
+    pt.appendChild(p);
+}
+
+// ===== إخفاء كل الصفحات =====
+function hideAll() {
+    document.getElementById('authPage').style.display  = 'none';
+    document.getElementById('homePage').style.display  = 'none';
+    document.getElementById('adminPage').style.display = 'none';
+    document.getElementById('bannedPage').style.display = 'none';
+}
+
+// ===== التابس =====
+function switchTab(tab) {
+    var tabs = document.querySelectorAll('.tab');
+    tabs[0].classList.
+        

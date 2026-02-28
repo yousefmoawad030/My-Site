@@ -6,14 +6,6 @@
     <title>موقع تعلم البرمجة</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #6c3fc5;
-            --secondary: #38bdf8;
-            --accent: #f472b6;
-            --dark: #0f0c29;
-            --card: rgba(255,255,255,0.07);
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -27,12 +19,7 @@
             position: relative;
         }
 
-        .bg-orbs {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
+        .bg-orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
 
         .orb {
             position: absolute;
@@ -42,26 +29,19 @@
             animation: orbFloat 8s ease-in-out infinite;
         }
 
-        .orb1 { width: 400px; height: 400px; background: #6c3fc5; top: -100px; left: -100px; animation-delay: 0s; }
+        .orb1 { width: 400px; height: 400px; background: #6c3fc5; top: -100px; left: -100px; }
         .orb2 { width: 300px; height: 300px; background: #38bdf8; bottom: -80px; right: -80px; animation-delay: 2s; }
         .orb3 { width: 200px; height: 200px; background: #f472b6; top: 50%; left: 50%; animation-delay: 4s; }
 
         @keyframes orbFloat {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -30px) scale(1.1); }
+            0%,100% { transform: translate(0,0) scale(1); }
+            50% { transform: translate(30px,-30px) scale(1.1); }
         }
 
-        .particles {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
+        .particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
 
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
             background: white;
             border-radius: 50%;
             opacity: 0;
@@ -69,10 +49,10 @@
         }
 
         @keyframes particleFly {
-            0% { opacity: 0; transform: translateY(100vh) rotate(0deg); }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { opacity: 0; transform: translateY(-100px) rotate(720deg); }
+            0% { opacity: 0; transform: translateY(100vh); }
+            10% { opacity: 0.4; }
+            90% { opacity: 0.4; }
+            100% { opacity: 0; transform: translateY(-100px); }
         }
 
         .card {
@@ -85,34 +65,30 @@
             max-width: 420px;
             position: relative;
             z-index: 10;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
-            animation: cardIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            animation: cardIn 0.6s cubic-bezier(0.34,1.56,0.64,1);
         }
 
         @keyframes cardIn {
             from { opacity: 0; transform: translateY(40px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        .logo {
-            text-align: center;
-            margin-bottom: 28px;
-        }
+        .logo { text-align: center; margin-bottom: 28px; }
 
         .logo-icon {
             font-size: 56px;
             display: block;
             margin-bottom: 10px;
-            animation: iconBounce 2s ease-in-out infinite;
+            animation: bounce 2s ease-in-out infinite;
         }
 
-        @keyframes iconBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
+            50%      { transform: translateY(-8px); }
         }
 
         .logo h1 {
-            color: white;
             font-size: 22px;
             font-weight: 900;
             background: linear-gradient(90deg, #fff, #38bdf8, #f472b6);
@@ -156,12 +132,9 @@
         .form-section { display: none; }
         .form-section.active { display: block; }
 
-        .input-wrap {
-            position: relative;
-            margin-bottom: 15px;
-        }
+        .input-wrap { position: relative; margin-bottom: 15px; }
 
-        .input-wrap .emoji {
+        .input-wrap .ico {
             position: absolute;
             right: 14px;
             top: 50%;
@@ -204,22 +177,10 @@
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 5px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .btn-main::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #f472b6, #6c3fc5);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .btn-main:hover::before { opacity: 1; }
         .btn-main:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(108,63,197,0.5); }
-        .btn-main span { position: relative; z-index: 1; }
+        .btn-main:active { transform: translateY(0); }
 
         .msg {
             display: none;
@@ -231,18 +192,13 @@
             text-align: center;
         }
 
-        .msg.error { background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.4); color: #fca5a5; }
-        .msg.success { background: rgba(34,197,94,0.2); border: 1px solid rgba(34,197,94,0.4); color: #86efac; }
+        .msg.error   { background: rgba(239,68,68,0.2);  border: 1px solid rgba(239,68,68,0.4);  color: #fca5a5; }
+        .msg.success { background: rgba(34,197,94,0.2);  border: 1px solid rgba(34,197,94,0.4);  color: #86efac; }
 
-        #homePage {
-            display: none;
-            animation: cardIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        /* ===== الصفحة الرئيسية ===== */
+        #homePage { display: none; }
 
-        .home-header {
-            text-align: center;
-            margin-bottom: 24px;
-        }
+        .home-header { text-align: center; margin-bottom: 24px; }
 
         .avatar {
             width: 80px;
@@ -255,11 +211,10 @@
             font-size: 36px;
             margin: 0 auto 14px;
             box-shadow: 0 8px 25px rgba(108,63,197,0.5);
-            animation: iconBounce 2s ease-in-out infinite;
+            animation: bounce 2s ease-in-out infinite;
         }
 
         .welcome-text {
-            color: white;
             font-size: 20px;
             font-weight: 900;
             background: linear-gradient(90deg, #fff, #38bdf8);
@@ -286,23 +241,32 @@
             transition: all 0.3s;
         }
 
-        .info-card:hover {
-            background: rgba(255,255,255,0.12);
-            transform: translateY(-3px);
-        }
+        .info-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
+        .info-card.full  { grid-column: 1 / -1; }
 
-        .info-card.full { grid-column: 1 / -1; }
-
-        .info-card .ic-icon { font-size: 24px; margin-bottom: 6px; display: block; }
+        .info-card .ic-icon  { font-size: 24px; margin-bottom: 6px; display: block; }
         .info-card .ic-label { color: rgba(255,255,255,0.4); font-size: 11px; margin-bottom: 4px; }
         .info-card .ic-value { color: white; font-size: 13px; font-weight: 700; word-break: break-all; }
 
         .ip-value {
-            font-size: 18px !important;
+            font-size: 17px !important;
             background: linear-gradient(90deg, #38bdf8, #f472b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .spinner {
+            display: inline-block;
+            width: 14px; height: 14px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-top-color: #38bdf8;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+            margin-left: 4px;
         }
 
         .btn-logout {
@@ -320,12 +284,7 @@
             margin-top: 5px;
         }
 
-        .btn-logout:hover {
-            background: rgba(239,68,68,0.35);
-            transform: translateY(-2px);
-        }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .btn-logout:hover { background: rgba(239,68,68,0.35); transform: translateY(-2px); }
 
         .courses-section { margin-top: 15px; }
         .courses-title { color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 10px; text-align: center; }
@@ -346,12 +305,7 @@
             transition: all 0.3s;
         }
 
-        .course-card:hover {
-            background: rgba(108,63,197,0.3);
-            border-color: #6c3fc5;
-            transform: translateY(-3px);
-        }
-
+        .course-card:hover { background: rgba(108,63,197,0.3); border-color: #6c3fc5; transform: translateY(-3px); }
         .course-card .cc-icon { font-size: 22px; display: block; margin-bottom: 5px; }
         .course-card .cc-name { color: white; font-size: 11px; font-weight: 600; }
     </style>
@@ -365,7 +319,7 @@
 </div>
 <div class="particles" id="particles"></div>
 
-<!-- صفحة تسجيل الدخول -->
+<!-- صفحة التسجيل -->
 <div class="card" id="authPage">
     <div class="logo">
         <span class="logo-icon">👨‍💻</span>
@@ -381,36 +335,32 @@
     <!-- إنشاء حساب -->
     <div class="form-section active" id="registerForm">
         <div class="input-wrap">
-            <span class="emoji">👤</span>
-            <input type="text" id="regName" placeholder="الاسم الكامل" />
+            <span class="ico">👤</span>
+            <input type="text" id="regName" placeholder="الاسم الكامل" autocomplete="off" />
         </div>
         <div class="input-wrap">
-            <span class="emoji">📧</span>
-            <input type="email" id="regEmail" placeholder="البريد الإلكتروني" />
+            <span class="ico">📧</span>
+            <input type="text" id="regEmail" placeholder="البريد الإلكتروني" autocomplete="off" />
         </div>
         <div class="input-wrap">
-            <span class="emoji">🔒</span>
+            <span class="ico">🔒</span>
             <input type="password" id="regPass" placeholder="كلمة المرور (6 أحرف على الأقل)" />
         </div>
-        <button class="btn-main" onclick="register()">
-            <span>✨ إنشاء حساب</span>
-        </button>
+        <button class="btn-main" onclick="register()">✨ إنشاء حساب</button>
         <div class="msg" id="regMsg"></div>
     </div>
 
     <!-- تسجيل الدخول -->
     <div class="form-section" id="loginForm">
         <div class="input-wrap">
-            <span class="emoji">📧</span>
-            <input type="email" id="loginEmail" placeholder="البريد الإلكتروني" />
+            <span class="ico">📧</span>
+            <input type="text" id="loginEmail" placeholder="البريد الإلكتروني" autocomplete="off" />
         </div>
         <div class="input-wrap">
-            <span class="emoji">🔒</span>
+            <span class="ico">🔒</span>
             <input type="password" id="loginPass" placeholder="كلمة المرور" />
         </div>
-        <button class="btn-main" onclick="login()">
-            <span>🔑 تسجيل الدخول</span>
-        </button>
+        <button class="btn-main" onclick="login()">🔑 تسجيل الدخول</button>
         <div class="msg" id="loginMsg"></div>
     </div>
 </div>
@@ -437,7 +387,7 @@
         <div class="info-card full">
             <span class="ic-icon">🌐</span>
             <div class="ic-label">عنوان IP بتاعك</div>
-            <div class="ic-value ip-value" id="infoIP">جاري التحميل...</div>
+            <div class="ic-value ip-value" id="infoIP"><span class="spinner"></span> جاري التحميل...</div>
         </div>
         <div class="info-card">
             <span class="ic-icon">🖥️</span>
@@ -451,7 +401,7 @@
         </div>
         <div class="info-card full">
             <span class="ic-icon">📡</span>
-            <div class="ic-label">مزود الإنترنت (ISP)</div>
+            <div class="ic-label">مزود الإنترنت</div>
             <div class="ic-value" id="infoISP">-</div>
         </div>
     </div>
@@ -459,30 +409,12 @@
     <div class="courses-section">
         <div class="courses-title">📚 الكورسات المتاحة</div>
         <div class="courses-grid">
-            <div class="course-card">
-                <span class="cc-icon">🐍</span>
-                <div class="cc-name">Python</div>
-            </div>
-            <div class="course-card">
-                <span class="cc-icon">🌐</span>
-                <div class="cc-name">HTML/CSS</div>
-            </div>
-            <div class="course-card">
-                <span class="cc-icon">⚡</span>
-                <div class="cc-name">JavaScript</div>
-            </div>
-            <div class="course-card">
-                <span class="cc-icon">📱</span>
-                <div class="cc-name">Flutter</div>
-            </div>
-            <div class="course-card">
-                <span class="cc-icon">🗄️</span>
-                <div class="cc-name">SQL</div>
-            </div>
-            <div class="course-card">
-                <span class="cc-icon">☕</span>
-                <div class="cc-name">Java</div>
-            </div>
+            <div class="course-card"><span class="cc-icon">🐍</span><div class="cc-name">Python</div></div>
+            <div class="course-card"><span class="cc-icon">🌐</span><div class="cc-name">HTML/CSS</div></div>
+            <div class="course-card"><span class="cc-icon">⚡</span><div class="cc-name">JavaScript</div></div>
+            <div class="course-card"><span class="cc-icon">📱</span><div class="cc-name">Flutter</div></div>
+            <div class="course-card"><span class="cc-icon">🗄️</span><div class="cc-name">SQL</div></div>
+            <div class="course-card"><span class="cc-icon">☕</span><div class="cc-name">Java</div></div>
         </div>
     </div>
 
@@ -490,114 +422,140 @@
 </div>
 
 <script>
-    // ====== جسيمات ======
-    const container = document.getElementById('particles');
-    for (let i = 0; i < 25; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.style.cssText = `
-            left: ${Math.random() * 100}%;
-            width: ${Math.random() * 4 + 2}px;
-            height: ${Math.random() * 4 + 2}px;
-            animation-duration: ${Math.random() * 10 + 8}s;
-            animation-delay: ${Math.random() * 10}s;
-            opacity: ${Math.random() * 0.5 + 0.1};
-        `;
-        container.appendChild(p);
+// ===== جسيمات =====
+var pt = document.getElementById('particles');
+for (var i = 0; i < 20; i++) {
+    var p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = (Math.random()*100) + '%';
+    p.style.width = (Math.random()*3+2) + 'px';
+    p.style.height = p.style.width;
+    p.style.animationDuration = (Math.random()*10+8) + 's';
+    p.style.animationDelay = (Math.random()*10) + 's';
+    pt.appendChild(p);
+}
+
+// ===== التابس =====
+function switchTab(tab) {
+    var tabs = document.querySelectorAll('.tab');
+    tabs[0].classList.toggle('active', tab === 'login');
+    tabs[1].classList.toggle('active', tab === 'register');
+    document.getElementById('loginForm').classList.toggle('active', tab === 'login');
+    document.getElementById('registerForm').classList.toggle('active', tab === 'register');
+}
+
+// ===== إنشاء حساب =====
+function register() {
+    var name  = document.getElementById('regName').value.trim();
+    var email = document.getElementById('regEmail').value.trim();
+    var pass  = document.getElementById('regPass').value;
+    var msg   = document.getElementById('regMsg');
+
+    if (!name || !email || !pass) { showMsg(msg, 'error', '⚠️ يرجى ملء جميع الحقول'); return; }
+    if (email.indexOf('@') < 0 || email.indexOf('.') < 0) { showMsg(msg, 'error', '⚠️ البريد الإلكتروني غير صحيح'); return; }
+    if (pass.length < 6) { showMsg(msg, 'error', '⚠️ كلمة المرور أقل من 6 أحرف'); return; }
+
+    var users = [];
+    try { users = JSON.parse(localStorage.getItem('users') || '[]'); } catch(e) {}
+
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email === email) { showMsg(msg, 'error', '❌ هذا البريد مسجل مسبقاً'); return; }
     }
 
-    // ====== التابس ======
-    function switchTab(tab) {
-        document.querySelectorAll('.tab').forEach((t, i) => {
-            t.classList.toggle('active',
-                (tab === 'login' && i === 0) || (tab === 'register' && i === 1));
-        });
-        document.getElementById('loginForm').classList.toggle('active', tab === 'login');
-        document.getElementById('registerForm').classList.toggle('active', tab === 'register');
+    var newUser = { name: name, email: email, pass: pass };
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('currentUser', JSON.stringify(newUser));
+
+    showMsg(msg, 'success', '✅ تم إنشاء الحساب! جاري الدخول...');
+
+    setTimeout(function() { goToHome(newUser); }, 800);
+}
+
+// ===== تسجيل الدخول =====
+function login() {
+    var email = document.getElementById('loginEmail').value.trim();
+    var pass  = document.getElementById('loginPass').value;
+    var msg   = document.getElementById('loginMsg');
+
+    if (!email || !pass) { showMsg(msg, 'error', '⚠️ يرجى ملء جميع الحقول'); return; }
+
+    var users = [];
+    try { users = JSON.parse(localStorage.getItem('users') || '[]'); } catch(e) {}
+
+    var user = null;
+    for (var i = 0; i < users.length; i++) {
+        if (users[i].email === email && users[i].pass === pass) { user = users[i]; break; }
     }
 
-    // ====== إنشاء حساب (التصحيح هنا) ======
-    function register() {
-        const name = document.getElementById('regName').value.trim();
-        const email = document.getElementById('regEmail').value.trim();
-        const pass = document.getElementById('regPass').value;
-        const msg = document.getElementById('regMsg');
+    if (!user) { showMsg(msg, 'error', '❌ البريد أو كلمة المرور غير صحيحة'); return; }
 
-        if (!name || !email || !pass) {
-            showMsg(msg, 'error', '⚠️ يرجى ملء جميع الحقول');
-            return;
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    showMsg(msg, 'success', '✅ جاري الدخول...');
+    setTimeout(function() { goToHome(user); }, 800);
+}
+
+// ===== الانتقال للصفحة الرئيسية =====
+function goToHome(user) {
+    document.getElementById('authPage').style.display = 'none';
+    document.getElementById('homePage').style.display = 'block';
+
+    var emojis = ['😊','🧑‍💻','👨‍💻','👩‍💻','🦸','🎯','🚀'];
+    document.getElementById('avatarEmoji').textContent  = emojis[user.name.charCodeAt(0) % emojis.length];
+    document.getElementById('welcomeName').textContent  = 'أهلاً، ' + user.name + '! 👋';
+    document.getElementById('infoName').textContent     = user.name;
+    document.getElementById('infoEmail').textContent    = user.email;
+
+    // جلب IP في الخلفية بشكل مستقل
+    fetchIP();
+}
+
+// ===== جلب الـ IP =====
+function fetchIP() {
+    var xhr1 = new XMLHttpRequest();
+    xhr1.open('GET', 'https://api.ipify.org?format=json', true);
+    xhr1.onload = function() {
+        if (xhr1.status === 200) {
+            var data = JSON.parse(xhr1.responseText);
+            var ip = data.ip;
+            document.getElementById('infoIP').textContent = ip;
+
+            var xhr2 = new XMLHttpRequest();
+            xhr2.open('GET', 'https://ipapi.co/' + ip + '/json/', true);
+            xhr2.onload = function() {
+                if (xhr2.status === 200) {
+                    var geo = JSON.parse(xhr2.responseText);
+                    document.getElementById('infoCountry').textContent = geo.country_name || 'غير معروف';
+                    document.getElementById('infoCity').textContent    = geo.city || 'غير معروف';
+                    document.getElementById('infoISP').textContent     = geo.org || 'غير معروف';
+                }
+            };
+            xhr2.onerror = function() {
+                document.getElementById('infoCountry').textContent = 'غير معروف';
+                document.getElementById('infoCity').textContent    = 'غير معروف';
+                document.getElementById('infoISP').textContent     = 'غير معروف';
+            };
+            xhr2.send();
         }
-        if (!email.includes('@') || !email.includes('.')) {
-            showMsg(msg, 'error', '⚠️ البريد الإلكتروني غير صحيح');
-            return;
-        }
-        if (pass.length < 6) {
-            showMsg(msg, 'error', '⚠️ كلمة المرور أقل من 6 أحرف');
-            return;
-        }
+    };
+    xhr1.onerror = function() {
+        document.getElementById('infoIP').textContent = 'تعذر الحصول على IP';
+    };
+    xhr1.send();
+}
 
-        const users = JSON.parse(localStorage.getItem('users') || '[]');
-        if (users.find(u => u.email === email)) {
-            showMsg(msg, 'error', '❌ هذا البريد مسجل مسبقاً');
-            return;
-        }
+// ===== تسجيل الخروج =====
+function logout() {
+    localStorage.removeItem('currentUser');
+    document.getElementById('homePage').style.display = 'none';
+    document.getElementById('authPage').style.display = 'block';
+    switchTab('register');
+}
 
-        // حفظ المستخدم
-        const newUser = { name, email, pass };
-        users.push(newUser);
-        localStorage.setItem('users', JSON.stringify(users));
-
-        // ✅ التصحيح: دخول تلقائي بعد إنشاء الحساب مباشرة
-        localStorage.setItem('currentUser', JSON.stringify(newUser));
-        showMsg(msg, 'success', '✅ تم إنشاء الحساب! جاري الدخول...');
-        setTimeout(() => showHome(newUser), 800);
-    }
-
-    // ====== تسجيل الدخول ======
-    function login() {
-        const email = document.getElementById('loginEmail').value.trim();
-        const pass = document.getElementById('loginPass').value;
-        const msg = document.getElementById('loginMsg');
-
-        if (!email || !pass) {
-            showMsg(msg, 'error', '⚠️ يرجى ملء جميع الحقول');
-            return;
-        }
-
-        const users = JSON.parse(localStorage.getItem('users') || '[]');
-        const user = users.find(u => u.email === email && u.pass === pass);
-
-        if (!user) {
-            showMsg(msg, 'error', '❌ البريد أو كلمة المرور غير صحيحة');
-            return;
-        }
-
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        showMsg(msg, 'success', '✅ جاري الدخول...');
-        setTimeout(() => showHome(user), 800);
-    }
-
-    // ====== الصفحة الرئيسية ======
-    async function showHome(user) {
-        document.getElementById('authPage').style.display = 'none';
-        document.getElementById('homePage').style.display = 'block';
-
-        document.getElementById('welcomeName').textContent = `أهلاً، ${user.name}! 👋`;
-        document.getElementById('infoName').textContent = user.name;
-        document.getElementById('infoEmail').textContent = user.email;
-
-        const emojis = ['😊','🧑‍💻','👨‍💻','👩‍💻','🦸','🎯','🚀'];
-        document.getElementById('avatarEmoji').textContent = emojis[user.name.charCodeAt(0) % emojis.length];
-
-        try {
-            const ipRes = await fetch('https://api.ipify.org?format=json');
-            const ipData = await ipRes.json();
-            document.getElementById('infoIP').textContent = ipData.ip;
-
-            const geoRes = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
-            const geo = await geoRes.json();
-            document.getElementById('infoCountry').
-<!DOCTYPE html>
+// ===== رسائل =====
+function showMsg(el, type, text) {
+    el.className = 'msg ' + type;
+    e<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -609,8 +567,6 @@
             --primary: #6c3fc5;
             --secondary: #38bdf8;
             --accent: #f472b6;
-            --dark: #0f0c29;
-            --card: rgba(255,255,255,0.07);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -626,12 +582,7 @@
             position: relative;
         }
 
-        .bg-orbs {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
+        .bg-orbs { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
 
         .orb {
             position: absolute;
@@ -641,26 +592,19 @@
             animation: orbFloat 8s ease-in-out infinite;
         }
 
-        .orb1 { width: 400px; height: 400px; background: #6c3fc5; top: -100px; left: -100px; animation-delay: 0s; }
+        .orb1 { width: 400px; height: 400px; background: #6c3fc5; top: -100px; left: -100px; }
         .orb2 { width: 300px; height: 300px; background: #38bdf8; bottom: -80px; right: -80px; animation-delay: 2s; }
         .orb3 { width: 200px; height: 200px; background: #f472b6; top: 50%; left: 50%; animation-delay: 4s; }
 
         @keyframes orbFloat {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -30px) scale(1.1); }
+            0%, 100% { transform: translate(0,0) scale(1); }
+            50% { transform: translate(30px,-30px) scale(1.1); }
         }
 
-        .particles {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
+        .particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
 
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
             background: white;
             border-radius: 50%;
             opacity: 0;
@@ -668,10 +612,10 @@
         }
 
         @keyframes particleFly {
-            0% { opacity: 0; transform: translateY(100vh) rotate(0deg); }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { opacity: 0; transform: translateY(-100px) rotate(720deg); }
+            0% { opacity: 0; transform: translateY(100vh); }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { opacity: 0; transform: translateY(-100px); }
         }
 
         .card {
@@ -684,8 +628,8 @@
             max-width: 420px;
             position: relative;
             z-index: 10;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.2);
-            animation: cardIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            animation: cardIn 0.6s cubic-bezier(0.34,1.56,0.64,1);
         }
 
         @keyframes cardIn {
@@ -699,16 +643,15 @@
             font-size: 56px;
             display: block;
             margin-bottom: 10px;
-            animation: iconBounce 2s ease-in-out infinite;
+            animation: bounce 2s ease-in-out infinite;
         }
 
-        @keyframes iconBounce {
-            0%, 100% { transform: translateY(0); }
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
         }
 
         .logo h1 {
-            color: white;
             font-size: 22px;
             font-weight: 900;
             background: linear-gradient(90deg, #fff, #38bdf8, #f472b6);
@@ -827,10 +770,8 @@
         .msg.error { background: rgba(239,68,68,0.2); border: 1px solid rgba(239,68,68,0.4); color: #fca5a5; }
         .msg.success { background: rgba(34,197,94,0.2); border: 1px solid rgba(34,197,94,0.4); color: #86efac; }
 
-        #homePage {
-            display: none;
-            animation: cardIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        /* ===== الصفحة الرئيسية ===== */
+        #homePage { display: none; }
 
         .home-header { text-align: center; margin-bottom: 24px; }
 
@@ -845,11 +786,10 @@
             font-size: 36px;
             margin: 0 auto 14px;
             box-shadow: 0 8px 25px rgba(108,63,197,0.5);
-            animation: iconBounce 2s ease-in-out infinite;
+            animation: bounce 2s ease-in-out infinite;
         }
 
         .welcome-text {
-            color: white;
             font-size: 20px;
             font-weight: 900;
             background: linear-gradient(90deg, #fff, #38bdf8);
@@ -883,12 +823,27 @@
         .info-card .ic-value { color: white; font-size: 13px; font-weight: 700; word-break: break-all; }
 
         .ip-value {
-            font-size: 18px !important;
+            font-size: 17px !important;
             background: linear-gradient(90deg, #38bdf8, #f472b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* بادج لودينج */
+        .loading-badge {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: #38bdf8;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         .btn-logout {
             width: 100%;
@@ -940,7 +895,7 @@
 </div>
 <div class="particles" id="particles"></div>
 
-<!-- صفحة تسجيل الدخول / إنشاء حساب -->
+<!-- صفحة التسجيل والدخول -->
 <div class="card" id="authPage">
     <div class="logo">
         <span class="logo-icon">👨‍💻</span>
@@ -953,7 +908,6 @@
         <button class="tab active" onclick="switchTab('register')">إنشاء حساب</button>
     </div>
 
-    <!-- إنشاء حساب -->
     <div class="form-section active" id="registerForm">
         <div class="input-wrap">
             <span class="emoji">👤</span>
@@ -973,7 +927,6 @@
         <div class="msg" id="regMsg"></div>
     </div>
 
-    <!-- تسجيل الدخول -->
     <div class="form-section" id="loginForm">
         <div class="input-wrap">
             <span class="emoji">📧</span>
@@ -1012,7 +965,9 @@
         <div class="info-card full">
             <span class="ic-icon">🌐</span>
             <div class="ic-label">عنوان IP بتاعك</div>
-            <div class="ic-value ip-value" id="infoIP">جاري التحميل...</div>
+            <div class="ic-value ip-value" id="infoIP">
+                <span class="loading-badge"></span> جاري التحميل...
+            </div>
         </div>
         <div class="info-card">
             <span class="ic-icon">🖥️</span>
@@ -1048,121 +1003,108 @@
 
 <script>
     // جسيمات
-    const container = document.getElementById('particles');
-    for (let i = 0; i < 25; i++) {
+    const particlesEl = document.getElementById('particles');
+    for (let i = 0; i < 20; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
-        p.style.cssText = `
-            left: ${Math.random() * 100}%;
-            width: ${Math.random() * 4 + 2}px;
-            height: ${Math.random() * 4 + 2}px;
-            animation-duration: ${Math.random() * 10 + 8}s;
-            animation-delay: ${Math.random() * 10}s;
-        `;
-        container.appendChild(p);
+        p.style.cssText = `left:${Math.random()*100}%;width:${Math.random()*3+2}px;height:${Math.random()*3+2}px;animation-duration:${Math.random()*10+8}s;animation-delay:${Math.random()*10}s;`;
+        particlesEl.appendChild(p);
     }
 
     // التابس
     function switchTab(tab) {
         document.querySelectorAll('.tab').forEach((t, i) => {
-            t.classList.toggle('active',
-                (tab === 'login' && i === 0) || (tab === 'register' && i === 1));
+            t.classList.toggle('active', (tab==='login' && i===0) || (tab==='register' && i===1));
         });
-        document.getElementById('loginForm').classList.toggle('active', tab === 'login');
-        document.getElementById('registerForm').classList.toggle('active', tab === 'register');
+        document.getElementById('loginForm').classList.toggle('active', tab==='login');
+        document.getElementById('registerForm').classList.toggle('active', tab==='register');
     }
 
-    // ✅ إنشاء حساب - مع التصحيح
+    // ✅ إنشاء حساب - المشكلة كانت هنا
     function register() {
-        const name = document.getElementById('regName').value.trim();
+        const name  = document.getElementById('regName').value.trim();
         const email = document.getElementById('regEmail').value.trim();
-        const pass = document.getElementById('regPass').value;
-        const msg = document.getElementById('regMsg');
+        const pass  = document.getElementById('regPass').value;
+        const msg   = document.getElementById('regMsg');
 
-        if (!name || !email || !pass) {
-            showMsg(msg, 'error', '⚠️ يرجى ملء جميع الحقول');
-            return;
-        }
-        if (!email.includes('@') || !email.includes('.')) {
-            showMsg(msg, 'error', '⚠️ البريد الإلكتروني غير صحيح');
-            return;
-        }
-        if (pass.length < 6) {
-            showMsg(msg, 'error', '⚠️ كلمة المرور أقل من 6 أحرف');
-            return;
-        }
+        // تحقق من البيانات
+        if (!name || !email || !pass) { showMsg(msg,'error','⚠️ يرجى ملء جميع الحقول'); return; }
+        if (!email.includes('@') || !email.includes('.')) { showMsg(msg,'error','⚠️ البريد الإلكتروني غير صحيح'); return; }
+        if (pass.length < 6) { showMsg(msg,'error','⚠️ كلمة المرور أقل من 6 أحرف'); return; }
 
-        const users = JSON.parse(localStorage.getItem('users') || '[]');
-        if (users.find(u => u.email === email)) {
-            showMsg(msg, 'error', '❌ هذا البريد مسجل مسبقاً');
-            return;
-        }
+        let users = [];
+        try { users = JSON.parse(localStorage.getItem('users') || '[]'); } catch(e) { users = []; }
 
+        if (users.find(u => u.email === email)) { showMsg(msg,'error','❌ هذا البريد مسجل مسبقاً'); return; }
+
+        // حفظ المستخدم
         const newUser = { name, email, pass };
         users.push(newUser);
         localStorage.setItem('users', JSON.stringify(users));
-
-        // ✅ التصحيح: دخول تلقائي فوري بدل الرجوع لصفحة تسجيل الدخول
         localStorage.setItem('currentUser', JSON.stringify(newUser));
+
         showMsg(msg, 'success', '✅ تم إنشاء الحساب! جاري الدخول...');
-        setTimeout(() => showHome(newUser), 800);
+
+        // ✅ الدخول التلقائي بعد 800ms بدون أي fetch يعطل العملية
+        setTimeout(function() {
+            goToHome(newUser);
+        }, 800);
     }
 
     // تسجيل الدخول
     function login() {
         const email = document.getElementById('loginEmail').value.trim();
-        const pass = document.getElementById('loginPass').value;
-        const msg = document.getElementById('loginMsg');
+        const pass  = document.getElementById('loginPass').value;
+        const msg   = document.getElementById('loginMsg');
 
-        if (!email || !pass) {
-            showMsg(msg, 'error', '⚠️ يرجى ملء جميع الحقول');
-            return;
-        }
+        if (!email || !pass) { showMsg(msg,'error','⚠️ يرجى ملء جميع الحقول'); return; }
 
-        const users = JSON.parse(localStorage.getItem('users') || '[]');
-        const user = users.find(u => u.email === email && u.pass === pass);
+        let users = [];
+        try { users = JSON.parse(localStorage.getItem('users') || '[]'); } catch(e) { users = []; }
 
-        if (!user) {
-            showMsg(msg, 'error', '❌ البريد أو كلمة المرور غير صحيحة');
-            return;
-        }
+        const user = users.find(u => u.email===email && u.pass===pass);
+        if (!user) { showMsg(msg,'error','❌ البريد أو كلمة المرور غير صحيحة'); return; }
 
         localStorage.setItem('currentUser', JSON.stringify(user));
         showMsg(msg, 'success', '✅ جاري الدخول...');
-        setTimeout(() => showHome(user), 800);
+
+        setTimeout(function() {
+            goToHome(user);
+        }, 800);
     }
 
-    // الصفحة الرئيسية
-    async function showHome(user) {
+    // ✅ الانتقال للصفحة الرئيسية أولاً - ثم جلب IP في الخلفية
+    function goToHome(user) {
+        // إخفاء صفحة التسجيل وإظهار الرئيسية فوراً
         document.getElementById('authPage').style.display = 'none';
         document.getElementById('homePage').style.display = 'block';
 
-        document.getElementById('welcomeName').textContent = `أهلاً، ${user.name}! 👋`;
-        document.getElementById('infoName').textContent = user.name;
-        document.getElementById('infoEmail').textContent = user.email;
-
+        // ملء بيانات المستخدم
         const emojis = ['😊','🧑‍💻','👨‍💻','👩‍💻','🦸','🎯','🚀'];
         document.getElementById('avatarEmoji').textContent = emojis[user.name.charCodeAt(0) % emojis.length];
+        document.getElementById('welcomeName').textContent = 'أهلاً، ' + user.name + '! 👋';
+        document.getElementById('infoName').textContent    = user.name;
+        document.getElementById('infoEmail').textContent   = user.email;
 
-        try {
-            const ipRes = await fetch('https://api.ipify.org?format=json');
-            const ipData = await ipRes.json();
-            document.getElementById('infoIP').textContent = ipData.ip;
-
-            const geoRes = await fetch(`https://ipapi.co/${ipData.ip}/json/`);
-            const geo = await geoRes.json();
-            document.getElementById('infoCountry').textContent = geo.country_name || 'غير معروف';
-            document.getElementById('infoCity').textContent = geo.city || 'غير معروف';
-            document.getElementById('infoISP').textContent = geo.org || 'غير معروف';
-        } catch(e) {
-            document.getElementById('infoIP').textContent = 'تعذر الحصول على IP';
-            document.getElementById('infoCountry').textContent = 'غير معروف';
-            document.getElementById('infoCity').textContent = 'غير معروف';
-            document.getElementById('infoISP').textContent = 'غير معروف';
-        }
+        // جلب IP في الخلفية بشكل مستقل - لو فشل مش هيأثر على الصفحة
+        fetchIP();
     }
 
-    // تسجيل الخروج
-    function logout() {
-        localStorage.removeItem('currentUser');
-        docume
+    // جلب الـ IP بشكل مستقل
+    function fetchIP() {
+        fetch('https://api.ipify.org?format=json')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                document.getElementById('infoIP').textContent = data.ip;
+                // جلب تفاصيل الموقع
+                return fetch('https://ipapi.co/' + data.ip + '/json/');
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(geo) {
+                document.getElementById('infoCountry').textContent = geo.country_name || 'غير معروف';
+                document.getElementById('infoCity').textContent    = geo.city || 'غير معروف';
+                document.getElementById('infoISP').textContent     = geo.org || 'غير معروف';
+            })
+            .catch(function() {
+                document.getElementById('infoIP').textContent      = 'تعذر الحصول على IP';
+             
